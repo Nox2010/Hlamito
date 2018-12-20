@@ -15,17 +15,23 @@
   <% end %>
 
   <p>
+    <div class="form_control">
     <%= form.label :title %><br>
     <%= form.text_field :title %>
+    </div>
   </p>
 
   <p>
+    <div class="form_control">
     <%= form.label :text %><br>
     <%= form.text_area :text %>
+    </div>
   </p>
 
   <p>
-    <%= form.submit %>
+    <div class="form_control">
+    <%= form.submit 'Опубликовать' %>
+    </div>
   </p>
 
 <% end %>
