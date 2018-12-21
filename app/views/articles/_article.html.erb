@@ -1,0 +1,16 @@
+<article class="article">
+  <section class="article-head">
+    <h2><%= link_to article.title, article_path(article) %></h2>
+    <small>
+      <time><%= article.created_at.to_date.strftime("%d %B, %Y") %></time>
+      |
+      <%= link_to 'Изменить', edit_article_path(article) %>
+      |
+      <%= link_to 'Удалить', article_path(article), method: :delete, data: { confirm: 'Вы уверены?' }  %>
+    </small>
+  </section>
+  <section class="article-summary">
+    <%= article.text %>
+  </section>
+
+</article>

@@ -1,18 +1,23 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
-
-<h2>Comments</h2>
-<%= render @article.comments %>
-
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<article class="article">
+  <section class="article-head">
+    <h1><%= @article.title %></h1>
+    <small>
+      <time><%= @article.created_at.to_date.strftime("%d %B, %Y") %></time>
+      |
+      <%= link_to 'Изменить', edit_article_path(@article) %>
+      |
+      <%= link_to 'Удалить', article_path(@article), method: :delete, data: { confirm: 'Вы уверены?' }  %>
+    </small>
+  </section>
+  <section class="article-body">
+    <%= @article.text %>
+  </section>
+  <strong>Комментарии</strong>
+  <section class="article-comments">
+    <%= render @article.comments %>
+  </section>
+  <section class="article-comments-send"
+    Оставить комментарий:
+    <%= render 'comments/form' %>
+  </section>
+</article>

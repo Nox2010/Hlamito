@@ -1,15 +1,13 @@
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
-</p>
+<article class="comment">
+      <section class="comment-nickname">
+        <strong><%= comment.commenter %></strong> | 
+        <small>
+          <time><%= comment.created_at.to_date.strftime("%d %b, %Y") %></time>
+        </small>
+      </section>
 
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
+      <section class="comment-text">
+        <%= comment.body %>
+      </section>
 
-<p>
-  <%= link_to 'Destroy Comment', [comment.article, comment],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</p>
+</article>
